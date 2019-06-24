@@ -17,7 +17,7 @@ function getCardId(cardIds){
 
 const lists = STORE.lists.map((list)=> <List key={list.id} header={list.header} cards={getCardId(list.cardIds)}/>);
 return (
-<div>
+<div class='App'>
     <header className="App-header">
     <h1>Trelloyes!</h1>
     </header>
