@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import List from './List.js';
-import STORE from './store.js';
 
-function App(){
+function App(props){
 
   //look through STORE.lists to get a list (object)
   //in the list get the array of cardIds
@@ -11,13 +10,13 @@ function App(){
 
 
 function getCardId(cardIds){
-  let cards = cardIds.map(id => STORE.allCards[id]);
+  let cards = cardIds.map(id => props.store.allCards[id]);
   return cards;
 }
 
-const lists = STORE.lists.map((list)=> <List key={list.id} header={list.header} cards={getCardId(list.cardIds)}/>);
+const lists = props.store.lists.map((list)=> <List key={list.id} header={list.header} cards={getCardId(list.cardIds)}/>);
 return (
-<div class='App'>
+<div className='App'>
     <header className="App-header">
     <h1>Trelloyes!</h1>
     </header>
